@@ -1,0 +1,10 @@
+<nav style="background: #1a1d23; padding: 15px 30px; display: flex; gap: 20px; align-items: center; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+  <span style="color: #ff6b00; font-weight: 900; font-size: 1.2rem; margin-right: 20px;">BURGER STAFF</span>
+  <a routerLink="/orders" style="color: white; text-decoration: none; font-weight: 600; padding: 8px 15px; border-radius: 6px; transition: 0.3s;" onmouseover="this.style.background='#ffffff22'" onmouseout="this.style.background='transparent'">Ordini</a>
+  <a routerLink="/menu" style="color: white; text-decoration: none; font-weight: 600; padding: 8px 15px; border-radius: 6px; transition: 0.3s;" onmouseover="this.style.background='#ffffff22'" onmouseout="this.style.background='transparent'">Catalogo Menu</a>
+</nav>
+
+<router-outlet></router-outlet>
+
+<!-- Questo tag è fondamentale: qui Angular caricherà i componenti -->
+<router-outlet></router-outlet>

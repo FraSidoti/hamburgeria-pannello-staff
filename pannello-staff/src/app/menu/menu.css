@@ -1,0 +1,20 @@
+.menu-container { padding: 20px; font-family: sans-serif; max-width: 800px; margin: auto; }
+.card { background: #f9f9f9; padding: 20px; border-radius: 8px; border: 1px solid #ddd; margin-bottom: 20px; }
+.form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 15px; }
+.input-group { display: flex; flex-direction: column; }
+.input-group label { font-size: 0.8rem; font-weight: bold; margin-bottom: 5px; }
+input, select { padding: 10px; border: 1px solid #ccc; border-radius: 4px; }
+
+.btn-add { background: #28a745; color: white; border: none; padding: 12px; border-radius: 5px; cursor: pointer; width: 100%; font-weight: bold; }
+.btn-delete { background: #dc3545; color: white; border: none; padding: 8px 12px; border-radius: 5px; cursor: pointer; }
+
+.product-card { 
+  display: flex; justify-content: space-between; align-items: center; 
+  background: white; border: 1px solid #eee; padding: 15px; border-radius: 8px; margin-bottom: 10px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+.product-info { display: flex; align-items: center; gap: 15px; }
+.product-img { width: 70px; height: 70px; border-radius: 6px; object-fit: cover; background: #eee; }
+.details h4 { margin: 5px 0; font-size: 1.1rem; }
+.price { color: #555; font-weight: bold; margin: 0; }
+.category-badge { font-size: 0.6rem; background: #007bff; color: white; padding: 2px 6px; border-radius: 10px; }

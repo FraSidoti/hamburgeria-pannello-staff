@@ -1,0 +1,164 @@
+/* Layout Generale */
+.container {
+  padding: 30px;
+  max-width: 1200px;
+  margin: auto;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  background-color: #f8f9fa;
+  min-height: 100vh;
+}
+
+h2 {
+  color: #1a1d23;
+  font-weight: 800;
+  font-size: 2rem;
+  margin-bottom: 30px;
+  border-left: 6px solid #ff6b00;
+  padding-left: 15px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Griglia delle Card */
+.orders-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 25px;
+}
+
+/* Card dell'Ordine */
+.order-card {
+  background: white;
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+  border: 1px solid #edf2f7;
+  transition: transform 0.2s, box-shadow 0.2s;
+  display: flex;
+  vertical-align: middle;
+  flex-direction: column;
+}
+
+.order-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+.order-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #f1f5f9;
+  padding-bottom: 15px;
+}
+
+.order-id {
+  font-weight: 700;
+  font-size: 1.3rem;
+  color: #2d3748;
+}
+
+/* Badge dello Stato */
+.status-badge {
+  padding: 6px 14px;
+  border-radius: 99px;
+  font-size: 0.75rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+}
+
+.status-attesa { background: #fff3cd; color: #856404; border: 1px solid #ffeeba; }
+.status-preparazione { background: #cfe2ff; color: #084298; border: 1px solid #b6d4fe; }
+.status-pronto { background: #d1e7dd; color: #0f5132; border: 1px solid #badbcc; }
+
+.order-body {
+  margin-bottom: 25px;
+}
+
+.total-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.1rem;
+  color: #4a5568;
+}
+
+.total-price {
+  font-weight: 800;
+  color: #2fb344;
+  font-size: 1.6rem;
+}
+
+/* --- LOGICA BOTTONI SEQUENZIALI --- */
+.actions {
+  display: flex;
+  justify-content: center;
+  margin-top: auto; /* Spinge il bottone sempre in fondo alla card */
+}
+
+.btn-status {
+  width: 100%; /* Occupa tutta la larghezza della card */
+  padding: 14px;
+  border: none;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+/* Colori e Hover specifici per ogni fase */
+.btn-prep {
+  background-color: #f1f5f9;
+  color: #084298;
+  border: 2px solid #cfe2ff;
+}
+.btn-prep:hover {
+  background-color: #3b82f6;
+  color: white;
+  border-color: #3b82f6;
+  transform: scale(1.02);
+}
+
+.btn-ready {
+  background-color: #f1f5f9;
+  color: #0f5132;
+  border: 2px solid #d1e7dd;
+}
+.btn-ready:hover {
+  background-color: #10b981;
+  color: white;
+  border-color: #10b981;
+  transform: scale(1.02);
+}
+
+.btn-done {
+  background-color: #f1f5f9;
+  color: #1a1d23;
+  border: 2px solid #e2e3e5;
+}
+.btn-done:hover {
+  background-color: #64748b;
+  color: white;
+  border-color: #64748b;
+  transform: scale(1.02);
+}
+
+/* Messaggio "Nessun ordine" */
+.empty-state {
+  text-align: center;
+  padding: 100px 20px;
+  color: #94a3b8;
+  background: white;
+  border-radius: 20px;
+  border: 2px dashed #e2e8f0;
+  grid-column: 1 / -1; /* Occupa tutta la larghezza della griglia */
+}

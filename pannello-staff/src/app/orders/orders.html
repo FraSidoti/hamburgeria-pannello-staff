@@ -1,0 +1,56 @@
+<div class="container">
+  <h2>📋 Gestione Ordini</h2>
+
+  <div class="orders-grid">
+    <div *ngFor="let order of orders" class="order-card">
+      
+      <div class="order-header">
+        <span class="order-id">Ordine #{{order.id}}</span>
+        <span class="status-badge" [ngClass]="{
+          'status-attesa': order.status === 'IN ATTESA',
+          'status-preparazione': order.status === 'IN PREPARAZIONE',
+          'status-pronto': order.status === 'PRONTO'
+        }">
+          {{order.status}}
+        </span>
+      </div>
+
+      <div class="order-body">
+        <div class="total-row">
+          <span>Totale da incassare:</span>
+          <span class="total-price">{{order.total | number:'1.2-2'}}€</span>
+        </div>
+      </div>
+
+      <!-- LOGICA BOTTONI SEQUENZIALI -->
+      <div class="actions">
+        
+        <!-- Se in attesa, mostro solo "Prepara" -->
+        <button *ngIf="order.status === 'IN ATTESA'" 
+                class="btn-status btn-prep" 
+                (click)="changeStatus(order.id, 'IN PREPARAZIONE')">
+          👨‍🍳 Inizia Preparazione
+        </button>
+
+        <!-- Se in preparazione, mostro solo "Pronto" -->
+        <button *ngIf="order.status === 'IN PREPARAZIONE'" 
+                class="btn-status btn-ready" 
+                (click)="changeStatus(order.id, 'PRONTO')">
+          ✅ Segna come Pronto
+        </button>
+
+        <!-- Se pronto, mostro solo "Consegnato" -->
+        <button *ngIf="order.status === 'PRONTO'" 
+                class="btn-status btn-done" 
+                (click)="changeStatus(order.id, 'CONSEGNATO')">
+          📦 Ordine Consegnato
+        </button>
+
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="orders.length === 0" style="text-align: center; padding: 50px; color: #94a3b8;">
+    <p style="font-size: 1.5rem;">Tutti gli ordini sono stati evasi! 🎉</p>
+  </div>
+</div>

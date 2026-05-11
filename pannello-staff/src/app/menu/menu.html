@@ -1,0 +1,62 @@
+<div class="menu-container">
+  <div class="header">
+    <h2>🍔 Gestione Menu Hamburgeria</h2>
+    <p>Aggiungi, modifica o elimina i prodotti dal catalogo digitale.</p>
+  </div>
+
+  <!-- SEZIONE AGGIUNTA NUOVO PRODOTTO -->
+  <div class="card add-form">
+    <h3>Aggiungi Nuovo Prodotto</h3>
+    <div class="form-grid">
+      <div class="input-group">
+        <label>Nome Prodotto</label>
+        <input [(ngModel)]="newProduct.name" placeholder="Es: Crispy Bacon">
+      </div>
+      
+      <div class="input-group">
+        <label>Prezzo (€)</label>
+        <input [(ngModel)]="newProduct.price" type="number" placeholder="Es: 9.50">
+      </div>
+
+      <div class="input-group">
+        <label>URL Immagine</label>
+        <input [(ngModel)]="newProduct.image" placeholder="Incolla link immagine qui...">
+      </div>
+
+      <div class="input-group">
+        <label>Categoria</label>
+        <select [(ngModel)]="newProduct.category">
+          <option value="panini">Panini</option>
+          <option value="bevande">Bevande</option>
+          <option value="menu">Menu Completi</option>
+        </select>
+      </div>
+    </div>
+    <button class="btn-add" (click)="saveProduct()">➕ Aggiungi al Menu</button>
+  </div>
+
+  <hr>
+
+  <!-- LISTA PRODOTTI ESISTENTI -->
+  <div class="product-list">
+    <h3>Prodotti nel Menu</h3>
+    
+    <!-- Se il menu è vuoto -->
+    <div *ngIf="products.length === 0" class="empty-msg">
+      Nessun prodotto presente. Aggiungine uno sopra!
+    </div>
+
+    <!-- Ciclo sui prodotti -->
+    <div *ngFor="let p of products" class="product-card">
+      <div class="product-info">
+        <img [src]="p.image" alt="Immagine prodotto" class="product-img" onerror="this.src='https://placehold.co/100x100?text=No+Image'">
+        <div class="details">
+          <span class="category-badge">{{p.category.toUpperCase()}}</span>
+          <h4>{{p.name}}</h4>
+          <p class="price">{{p.price | number:'1.2-2'}} €</p>
+        </div>
+      </div>
+      <button class="btn-delete" (click)="removeProduct(p.id)">🗑️ Elimina</button>
+    </div>
+  </div>
+</div>
